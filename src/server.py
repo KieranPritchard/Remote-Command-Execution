@@ -3,8 +3,8 @@ import subprocess
 
 def start_server():
     # IP address and port number
-    ip_address = "0.0.0.0"
-    port = 5000
+    ip_address = "127.0.0.1"
+    port = 5001
 
     # Socket object creation
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -38,11 +38,10 @@ def start_server():
 
 def execute_command(command):
     command_string = command
-    command_list = command_string.split
 
-    result = subprocess.run([command_list], capture_output=True, text=True)
+    result = subprocess.run([command], capture_output=True, text=True)
 
-    stored_result = result
+    stored_result =  result.stdout if result.stdout else result.stderr
 
     return stored_result
 
