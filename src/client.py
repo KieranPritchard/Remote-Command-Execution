@@ -1,7 +1,7 @@
 import socket
 
 # IP address and port number
-ip_address = "0.0.0.0"
+ip_address = "127.0.0.1"
 port = 5001
 
 # server object and connection to server program
