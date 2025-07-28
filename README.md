@@ -65,7 +65,7 @@ python client.py
 ```
 * The client will attempt to connect to the server, and once connected, you will see a prompt: Please input a command: 
 
-**4. Send Commands:
+**4. Send Commands:**
 
 * In the client terminal, type any command you want to execute on the server (e.g., ls, dir, echo Hello World, whoami).
 * Press Enter.
