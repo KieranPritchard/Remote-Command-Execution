@@ -20,12 +20,15 @@ def start_server():
 
         while True:
             try:
+                # Receives a command from the client app
                 receive_command = client.recv(1024)
 
+                # Displays disconnect message
                 if not receive_command:
                     print(f"Client at {address} disconnected")
                     break
 
+                # Receives and decodes the command to sends the result back to the user
                 command = receive_command.decode()
                 print(f"Command received from client: {command}")
                 stored_result = execute_command(command)
@@ -33,12 +36,12 @@ def start_server():
                 client.send(stored_result.encode())
 
             except socket.error as e:
+                # Prints error message
                 print(f"Error encountered {e}")
         client.close()
 
 def execute_command(command):
-    command_string = command
-
+    # Executes the command and stores the output to send back to client
     result = subprocess.run([command], capture_output=True, text=True)
 
     stored_result =  result.stdout if result.stdout else result.stderr

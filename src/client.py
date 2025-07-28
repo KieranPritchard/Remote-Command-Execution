@@ -4,9 +4,11 @@ import socket
 ip_address = "0.0.0.0"
 port = 5001
 
+# server object and connection to server program
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.connect((ip_address, port))
 
+# Loops the command input and output of data from the server
 while True:
     command_input = input("Please input a command: ")
     try:
